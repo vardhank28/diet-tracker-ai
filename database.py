@@ -6,6 +6,7 @@ def create_connection():
     try:
         conn = sqlite3.connect("diet_tracker.db")
         print("Connected to database: diet_tracker.db")
+        create_table(conn)
     except sqlite3.Error as e:
         print(f"Error connecting to database: {e}")
     return conn
