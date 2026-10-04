@@ -107,7 +107,10 @@ def main():
 
     meal_dicts = [meal.model_dump() for meal in meals]
 
-    df = pd.DataFrame(meal_dicts)
+    df = pd.DataFrame(
+    meal_dicts,
+    columns=["id", "date", "meal_type", "description", "calories", "protein", "carbs", "fat"]
+)
 
     df["date"] = pd.to_datetime(df["date"]).dt.date
 
